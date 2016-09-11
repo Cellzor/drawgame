@@ -8,8 +8,8 @@ $(function () {
         return false;
     }
 
-    var url = 'http://localhost:8080';
-
+    //var url = 'http://localhost:3000';
+    var socket = io();
     var doc = $(document),
         win = $(window),
         canvas = $('#paper'),
@@ -25,7 +25,7 @@ $(function () {
     var clients = {};
     var cursors = {};
 
-    var socket = io.connect(url);
+   // var socket = io.connect(url);
 
     socket.on('moving', function (data) {
         if(! (data.id in clients)){
