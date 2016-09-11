@@ -11,11 +11,7 @@ var io = require('socket.io')(http);
 // accessible from the web
 app.use(express.static(__dirname + '/public' ));
 
-// This is the port for our web server.
-// you will need to go to http://localhost:8080 to see it
-http.listen(PORT, function(){
-    console.log('Server started!')
-});
+
 
 // Listen for incoming connections from clients
 io.sockets.on('connection', function (socket) {
@@ -27,3 +23,8 @@ io.sockets.on('connection', function (socket) {
     });
 });
 
+// This is the port for our web server.
+// you will need to go to http://localhost:8080 to see it
+http.listen(PORT, function(){
+    console.log('Server started!')
+});

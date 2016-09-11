@@ -8,7 +8,6 @@ $(function () {
         return false;
     }
 
-    //var url = 'http://localhost:3000';
     var socket = io();
     var doc = $(document),
         win = $(window),
@@ -17,15 +16,14 @@ $(function () {
         instructions = $('#instructions');
 
     // Generate an unique ID
-    var id = Math.round($.now()*Math.random());
+    //var id = Math.round($.now()*Math.random());
+    var id = socket.id;
 
     // A flag for drawing activity
     var drawing = false;
 
     var clients = {};
     var cursors = {};
-
-   // var socket = io.connect(url);
 
     socket.on('moving', function (data) {
         if(! (data.id in clients)){
